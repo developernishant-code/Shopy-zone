@@ -4,11 +4,13 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const categoryrouter = require('./routers/Categoryrouter')
 const { BrandRouter } = require('./routers/Brandrouter')
+const { ColorRouter } = require('./routers/Colorrouter')
 const server = express()
 server.use(cors({ origin: "http://localhost:3000" }))
 server.use(express.json())
 server.use("/category", categoryrouter)
 server.use("/brand", BrandRouter)
+server.use("/color", ColorRouter)
 server.use(express.static("public"))
 
 mongoose.connect(process.env.DATABASE_URL).then(
